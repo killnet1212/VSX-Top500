@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="settings.pageTitle">Настройки VS Code — settings.json, горячие клавиши и темы</title>
+  <meta name="description" content="Готовые settings.json, свои горячие клавиши в keybindings.json и проверенные темы для Visual Studio Code — копируйте и вставляйте." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+  <script>try{if(localStorage.getItem("vsx_theme")==="light")document.documentElement.setAttribute("data-theme","light")}catch(e){}document.documentElement.classList.add("js");window.addEventListener("error",function(){document.documentElement.classList.remove("js")});</script>
+</head>
+<body>
+  <div class="bg-orbs" aria-hidden="true">
+    <span class="orb orb-1"></span>
+    <span class="orb orb-2"></span>
+    <span class="orb orb-3"></span>
+  </div>
+  <div class="particles" aria-hidden="true">
+    <span class="particle" style="left:8%;--dur:15s;--delay:1s"></span>
+    <span class="particle" style="left:28%;--dur:12s;--delay:3s"></span>
+    <span class="particle" style="left:45%;--dur:17s;--delay:0s"></span>
+    <span class="particle" style="left:62%;--dur:13s;--delay:5s"></span>
+    <span class="particle" style="left:78%;--dur:14s;--delay:2s"></span>
+    <span class="particle" style="left:92%;--dur:11s;--delay:4s"></span>
+  </div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">
+        <span class="logo-mark">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </span>
+        <span class="logo-text">VSX<span>Top500</span></span>
+      </a>
+      <a class="back-link" href="index.html" data-i18n-title="nav.backTitle" data-i18n-aria="nav.backTitle">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        <span data-i18n="nav.back">Главное меню</span>
+      </a>
+      <nav class="header-nav">
+        <a href="index.html#rating" data-i18n="nav.rating">Рейтинг</a>
+        <a href="first-day.html" data-i18n="nav.firstDay">Первый день</a>
+        <a href="kits.html" data-i18n="nav.kits">Наборы</a>
+        <a href="lessons.html" data-i18n="nav.lessons">Уроки</a>
+        <a href="lifehacks.html" data-i18n="nav.lifehacks">Лайфхаки</a>
+        <a href="prompts.html" data-i18n="nav.prompts">Промпты</a>
+        <a href="settings.html" data-i18n="nav.settings">Настройки</a>
+        <a href="publishers.html" data-i18n="nav.publishers">Разработчики</a>
+        <a href="avoid.html" data-i18n="nav.avoid">Не ставить</a>
+        <button class="theme-btn" type="button" data-theme-btn aria-pressed="false" title="Тема сайта">
+          <svg class="icon-sun" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        </button>
+        <div class="lang-switch" role="group" data-i18n-aria="nav.langLabel" aria-label="Язык сайта">
+          <button class="lang-btn" type="button" data-lang-btn="ru">RU</button>
+          <button class="lang-btn" type="button" data-lang-btn="en">EN</button>
+        </div>
+      </nav>
+      <button class="burger-btn" type="button" id="burgerBtn" aria-label="Меню" aria-expanded="false">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line class="burger-line burger-line-1" x1="3" y1="6" x2="21" y2="6"/>
+          <line class="burger-line burger-line-2" x1="3" y1="12" x2="21" y2="12"/>
+          <line class="burger-line burger-line-3" x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile nav overlay -->
+  <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Мобильное меню">
+    <button class="mobile-nav-close" type="button" id="mobileNavClose" aria-label="Закрыть меню">✕</button>
+    <a href="index.html#rating" data-i18n="nav.rating">Рейтинг</a>
+    <a href="first-day.html" data-i18n="nav.firstDay">Первый день</a>
+        <a href="kits.html" data-i18n="nav.kits">Наборы</a>
+        <a href="generator.html" data-i18n="nav.generator">Генератор</a>
+        <a href="lessons.html" data-i18n="nav.lessons">Уроки</a>
+    <a href="lifehacks.html" data-i18n="nav.lifehacks">Лайфхаки</a>
+    <a href="prompts.html" data-i18n="nav.prompts">Промпты</a>
+    <a href="settings.html" data-i18n="nav.settings">Настройки</a>
+    <a href="publishers.html" data-i18n="nav.publishers">Разработчики</a>
+        <a href="avoid.html" data-i18n="nav.avoid">Не ставить</a>
+  </nav>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <h1 data-i18n="settings.h1">Настройки, клавиши и темы</h1>
+        <p class="hero-sub" data-i18n="settings.sub">
+          Плагины — только часть полезного. Готовые settings.json, свои горячие клавиши
+          и проверенные темы — копируйте и вставляйте.
+        </p>
+        <p class="page-tip" data-i18n="settings.tip">Открыть settings.json: Ctrl+Shift+P → Open User Settings (JSON). Клавиши: Open Keyboard Shortcuts (JSON).</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2 class="section-title" data-i18n="settings.sectionJson">Готовые settings.json</h2>
+        <div id="jsonGrid" class="settings-grid"></div>
+
+        <h2 class="section-title" data-i18n="settings.sectionKeys">Свои горячие клавиши</h2>
+        <div id="keysGrid" class="settings-grid"></div>
+
+        <h2 class="section-title" id="themesSection" data-i18n="settings.sectionThemes">Темы <span class="muted section-hint" data-i18n="settings.themesHint">Сменить тему: Ctrl+K Ctrl+T</span></h2>
+        <div id="themesGrid" class="themes-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span data-i18n="footer.note">Данные: Visual Studio Marketplace. Сайт не аффилирован с Microsoft.</span>
+      <nav class="footer-links">
+        <a href="index.html" data-i18n="nav.home">Главная</a>
+        <a href="first-day.html" data-i18n="nav.firstDay">Первый день</a>
+        <a href="kits.html" data-i18n="nav.kits">Наборы</a>
+        <a href="lessons.html" data-i18n="nav.lessons">Уроки</a>
+        <a href="lifehacks.html" data-i18n="nav.lifehacks">Лайфхаки</a>
+        <a href="prompts.html" data-i18n="nav.prompts">Промпты</a>
+        <a href="settings.html" data-i18n="nav.settings">Настройки</a>
+        <a href="publishers.html" data-i18n="nav.publishers">Разработчики</a>
+        <a href="avoid.html" data-i18n="nav.avoid">Не ставить</a>
+      </nav>
+      <button id="scrollTop" class="btn btn-ghost" type="button" data-i18n="footer.top">Наверх ↑</button>
+    </div>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script src="theme.js"></script>
+  <script src="platform.js"></script>
+  <script src="assistant.js"></script>
+  <script src="settings.js"></script>
+  <script>
+    (() => {
+      const b = document.getElementById("burgerBtn");
+      const n = document.getElementById("mobileNav");
+      const o = document.getElementById("mobileNavOverlay");
+      const c = document.getElementById("mobileNavClose");
+      if (b && n && o && c) {
+        const toggle = (open) => {
+          const on = typeof open === "boolean" ? open : !n.classList.contains("open");
+          n.classList.toggle("open", on);
+          o.classList.toggle("open", on);
+          b.classList.toggle("open", on);
+          b.setAttribute("aria-expanded", String(on));
+          document.body.style.overflow = on ? "hidden" : "";
+        };
+        b.addEventListener("click", () => toggle());
+        c.addEventListener("click", () => toggle(false));
+        o.addEventListener("click", () => toggle(false));
+        n.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => toggle(false)));
+      }
+    })();
+  </script>
+</body>
+</html>
+
